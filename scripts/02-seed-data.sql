@@ -1,0 +1,2 @@
+-- Insert default categories (these will be created per user when they sign up)
+-- This is just a reference - actual categories will be created via the app
