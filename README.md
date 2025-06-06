@@ -68,7 +68,12 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 🗂️ Project Structure
 
+<<<<<<< HEAD
 ```
+=======
+```bash
+
+>>>>>>> 22d4a74 (your commit message)
 task-management-app/
 ├── app/
 │   ├── auth/
@@ -152,4 +157,8 @@ MIT
 
 ---
 
+<<<<<<< HEAD
 **Built with ❤️ using Next.js, Supabase, and Tailwind CSS**
+=======
+### Built with ❤️ using Next.js, Supabase, and Tailwind CSS
+>>>>>>> 22d4a74 (your commit message)

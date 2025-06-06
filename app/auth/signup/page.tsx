@@ -3,7 +3,8 @@
 import { useState } from "react"
 import { signUp } from "../actions"
 import Link from "next/link"
-import { UserPlus } from "lucide-react" // Make sure you have lucide-react installed
+import { UserPlus } from "lucide-react"
+import { motion } from "framer-motion"
 
 export default function SignUpPage() {
   const [error, setError] = useState("")
@@ -32,20 +33,31 @@ export default function SignUpPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 p-4">
-      <div className="bg-white/90 backdrop-blur-lg p-10 rounded-3xl shadow-2xl w-full max-w-md border border-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-300 via-purple-200 to-pink-200 animate-gradient-x">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="bg-white/80 backdrop-blur-lg p-10 rounded-3xl shadow-2xl w-full max-w-md border border-gray-100"
+      >
         <div className="flex flex-col items-center mb-6">
-          <span className="bg-gradient-to-tr from-blue-500 to-purple-500 p-3 rounded-full shadow-lg mb-2">
+          <span className="bg-gradient-to-tr from-indigo-500 to-purple-500 p-3 rounded-full shadow-lg mb-2 animate-pulse">
             <UserPlus className="w-8 h-8 text-white" />
           </span>
-          <h1 className="text-3xl font-extrabold text-gray-800 mb-1">Create Account</h1>
+          <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-500 mb-1">
+            Create Account
+          </h1>
           <p className="text-gray-500 text-sm">Sign up to get started!</p>
         </div>
 
         {error && (
-          <div className="bg-red-50 text-red-600 p-3 rounded-md mb-4 border border-red-200 text-center font-medium">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="bg-red-50 text-red-600 p-3 rounded-md mb-4 border border-red-200 text-center font-medium"
+          >
             {error}
-          </div>
+          </motion.div>
         )}
 
         <form action={handleSubmit} className="space-y-5">
@@ -58,7 +70,7 @@ export default function SignUpPage() {
               name="email"
               type="email"
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
               placeholder="you@email.com"
             />
           </div>
@@ -94,7 +106,7 @@ export default function SignUpPage() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 px-4 rounded-lg shadow hover:scale-105 transition-transform font-semibold disabled:opacity-60"
+            className="w-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white py-2 px-4 rounded-lg shadow hover:scale-105 transition-transform font-semibold disabled:opacity-60"
           >
             {isLoading ? "Creating account..." : "Sign Up"}
           </button>
@@ -106,7 +118,7 @@ export default function SignUpPage() {
             Sign in
           </Link>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }
